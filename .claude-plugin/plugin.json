@@ -1,0 +1,9 @@
+{
+  "name": "polish",
+  "description": "Polish a codebase by reviewing it for simplifications, unifications, and reduced cognitive load. Convenes Otwell, DHH, Wathan, and Porzio as parallel reviewers. Report-only by default; --interactive confirms and implements.",
+  "author": {
+    "name": "Franco Gilio"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/fgilio/polish-skill"
+}
