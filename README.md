@@ -1,6 +1,6 @@
 # polish skill
 
-A code-review skill for Claude Code that hunts for **simplification**. It analyzes a scope end to end, convenes Taylor Otwell, DHH, Adam Wathan, and Caleb Porzio as four parallel reviewer personas, and synthesizes their findings into one prioritized list. The bar is semantic clarity: code that stays obvious six months from now and under production pressure.
+A code-review skill for Claude Code that hunts for **simplification**. It analyzes a scope end to end, convenes Taylor Otwell, DHH, and Adam Wathan as parallel reviewer personas (Caleb Porzio joins when frontend files are in scope), and synthesizes their findings into one prioritized list. The bar is semantic clarity: code that stays obvious six months from now and under production pressure.
 
 Everything lives in [SKILL.md](skills/polish/SKILL.md).
 
@@ -14,9 +14,10 @@ One skill, two modes — selected by argument:
 Optionally scope the review:
 
 ```
-/polish --scope=the current changes      # default
-/polish --scope=the current branch
-/polish --interactive --scope=the entire project
+/polish --scope=changes      # default
+/polish --scope=branch
+/polish --scope=project
+/polish --interactive --scope=project
 ```
 
 ## Installation
