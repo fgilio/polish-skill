@@ -3,12 +3,13 @@ name: polish
 description: >
   Polish a codebase by reviewing it in search of simplifications,
   unifications, and reductions in cognitive load. Convenes Taylor Otwell,
-  DHH, Adam Wathan, and Caleb Porzio as parallel reviewer personas.
+  DHH, and Adam Wathan as parallel reviewer personas, plus Caleb Porzio
+  when frontend files are in scope.
   Runs non-interactively by default (report only); pass --interactive to
   confirm each finding and implement an agreed plan.
   Use when: simplifying code, reducing indirection, hunting for
   maintainability wins, reviewing changes/a branch/a project for clarity.
-argument-hint: "[--interactive] [--scope=the current changes|the current branch|the entire project]"
+argument-hint: "[--interactive] [--scope=changes|branch|project]"
 user-invocable: true
 disable-model-invocation: true
 ---
@@ -22,7 +23,7 @@ Review code in search of simplification. The bar is **semantic clarity**: the co
 `$ARGUMENTS` carries the invocation. Resolve two things from it:
 
 1. **Mode.** If it contains `--interactive`, `-i`, or the bare word `interactive`, run in **interactive mode**. Otherwise run in **report mode** (the default).
-2. **Scope.** Use the value of `--scope=…` if present. Otherwise infer the most useful scope from context — default to **the current changes** (uncommitted diff) when a repo has them, else the current branch's diff against its base, else ask the user only if genuinely ambiguous.
+2. **Scope.** Use the value of `--scope=…` if present: `changes` (the uncommitted diff), `branch` (the current branch's diff against its base), or `project` (the entire codebase). Accept the spelled-out forms too (`the current changes`, `the current branch`, `the entire project`). Otherwise infer the most useful scope from context — default to `changes` when the repo has uncommitted work, else `branch`, else ask the user only if genuinely ambiguous.
 
 State the resolved mode and scope in one line before you begin, so the choice is visible and correctable.
 
