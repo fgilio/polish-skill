@@ -29,7 +29,7 @@ State the resolved mode and scope in one line before you begin, so the choice is
 
 ## The review (both modes)
 
-Analyze the scope in depth, fully end to end, every file in it.
+Analyze the scope in depth, fully end to end, every file in it. When the scope is the entire project and too large for a single pass, shard it: give each persona several subagents, one per slice of the tree, rather than letting one subagent skim everything and call it coverage. State in the synthesis what was read in full and what was only surveyed.
 
 Convene the panel. Spawn **parallel subagents**, one per persona, each reviewing the same scope through that person's lens. Otwell, DHH, and Wathan always sit on the panel; Porzio joins only when the scope warrants it (see his entry):
 
