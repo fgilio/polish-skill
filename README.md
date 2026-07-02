@@ -16,6 +16,7 @@ Optionally scope the review:
 ```
 /polish --scope=changes      # default
 /polish --scope=branch
+/polish --scope=project
 /polish --interactive --scope=project
 ```
 
