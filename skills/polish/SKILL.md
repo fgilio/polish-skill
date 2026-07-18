@@ -9,9 +9,12 @@ description: >
   confirm each finding and implement an agreed plan.
   Use when: simplifying code, reducing indirection, hunting for
   maintainability wins, reviewing changes/a branch/a project for clarity.
+  Invoke only when the user explicitly asks to polish or simplify (e.g.
+  /polish) or when an orchestrating skill such as fgilio-review delegates
+  to it. Do not auto-invoke it opportunistically.
 argument-hint: "[--interactive] [--scope=changes|branch|project]"
 user-invocable: true
-disable-model-invocation: true
+disable-model-invocation: false
 ---
 
 # Polish
@@ -37,6 +40,8 @@ Convene the panel. Spawn **parallel subagents**, one per persona, each reviewing
 - **DHH — is it simple and easy to maintain?** Hunts for needless abstraction and ceremony: layers that exist "just in case", speculative flexibility, patterns imported without earning their keep, three concepts where one would do. Prefers deleting code over organizing it. The bar is code a maintainer can change confidently months from now without archaeology.
 - **Adam Wathan — does it speak the language of the system?** Hunts for semantic drift: names that don't match the domain vocabulary, one-off solutions where the codebase already has an established pattern, near-duplicates that should collapse into an existing convention. The bar is code that looks like it was written by the same hand as the rest of the system.
 - **Caleb Porzio — is the frontend built the way we build frontend?** Owns everything Livewire, Flux, and Alpine: component boundaries and communication, state living where it belongs (server-side vs Alpine), Flux components over bespoke markup, a sprinkle of Alpine over a heavyweight solution. The bar is a frontend a backend developer can follow. Spawn this persona only when the scope contains relevant files (Livewire components, Blade views, Alpine or other frontend code); skip it otherwise and note the skip in the synthesis.
+
+The panel also flags **comment and prose noise**, not only code: comments that restate a documented convention, narrate what the next line plainly does, recount history (biography), or sit in a header block when they explain one specific line. Apply the `coding` skill's comment rules as part of the review.
 
 Each subagent returns concrete, file-specific findings — not platitudes. Each finding should name the file/symbol, the problem (what costs clarity or adds cognitive load), and the proposed simplification.
 
