@@ -20,6 +20,8 @@ Optionally scope the review:
 /polish --interactive --scope=project
 ```
 
+The commands above assume a skills-directory install. Installed as a plugin, skills are namespaced as `/<plugin>:<skill>`, so the command becomes `/polish:polish`.
+
 ## Installation
 
 ### As a plugin

@@ -2,16 +2,12 @@
 name: polish
 description: >
   Polish a codebase by reviewing it in search of simplifications,
-  unifications, and reductions in cognitive load. Convenes Taylor Otwell,
-  DHH, and Adam Wathan as parallel reviewer personas, plus Caleb Porzio
-  when frontend files are in scope.
-  Runs non-interactively by default (report only); pass --interactive to
-  confirm each finding and implement an agreed plan.
+  unifications, and reductions in cognitive load.
   Use when: simplifying code, reducing indirection, hunting for
   maintainability wins, reviewing changes/a branch/a project for clarity.
   Invoke only when the user explicitly asks to polish or simplify (e.g.
-  /polish) or when an orchestrating skill such as fgilio-review delegates
-  to it. Do not auto-invoke it opportunistically.
+  /polish) or when an orchestrating skill delegates to it. Do not
+  auto-invoke it opportunistically.
 argument-hint: "[--interactive] [--scope=changes|branch|project]"
 user-invocable: true
 disable-model-invocation: false
