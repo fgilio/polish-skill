@@ -26,9 +26,7 @@ The commands above assume a skills-directory install. Installed as a plugin, ski
 
 ### As a plugin
 
-The manifest declares `coding` as a [plugin dependency](https://code.claude.com/docs/en/plugin-dependencies). Both plugins are available in the `fgilio` marketplace.
-
-Installs through the [fgilio marketplace](https://github.com/fgilio/claude-plugins) and receives updates as the skill evolves:
+Installs through the [fgilio marketplace](https://github.com/fgilio/claude-plugins) and receives updates as the skill evolves. The manifest declares `coding` as a [plugin dependency](https://code.claude.com/docs/en/plugin-dependencies), so the install pulls it in:
 
 ```
 /plugin marketplace add fgilio/claude-plugins
@@ -37,7 +35,7 @@ Installs through the [fgilio marketplace](https://github.com/fgilio/claude-plugi
 
 ### Manual clone
 
-Install the [coding skill](https://github.com/fgilio/coding-skill#manual-clone) first. Manual clones do not resolve plugin dependencies. Keep it updated so its Coherent Interfaces section is available.
+Install the [coding skill](https://github.com/fgilio/coding-skill#manual-clone) first. Manual clones do not resolve plugin dependencies.
 
 Clone and symlink into your Claude Code skills directory:
 
