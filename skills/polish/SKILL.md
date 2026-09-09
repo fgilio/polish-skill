@@ -17,6 +17,8 @@ disable-model-invocation: false
 
 Review code in search of simplification. The bar is **semantic clarity**: the code should be crystal clear six months from now, crystal clear while debugging a production bug under pressure, and conceptually clear enough that adding features is obvious. Favor simplifications, unifications, and anything that decreases cognitive load. Avoid overengineering. Eliminate indirection.
 
+Load the required `coding` skill before reviewing (`coding:coding` in a plugin installation). If it is unavailable, report the missing prerequisite and link to its [installation instructions](https://github.com/fgilio/coding-skill#installation) instead of running an incomplete review.
+
 ## Parsing arguments
 
 `$ARGUMENTS` carries the invocation. Resolve two things from it:
@@ -39,26 +41,11 @@ Convene the panel. Spawn **parallel subagents**, one per persona, each reviewing
 
 The panel also flags **comment and prose noise**, not only code: comments that restate a documented convention, narrate what the next line plainly does, recount history (biography), or sit in a header block when they explain one specific line. Apply the `coding` skill's comment rules as part of the review.
 
-### Trace related interfaces
+The panel also **traces related interfaces** when a change introduces or alters an interface, data representation, or responsibility. Apply the `coding` skill's Coherent Interfaces section to the affected flow. Wathan owns the trace, DHH challenges added abstractions, and Otwell or Porzio checks framework and component ownership. Use the existing panel, not a separate review round.
 
-When the change introduces or alters an interface, data representation, or responsibility, apply the `coding` skill's coherent-interface rules to the affected flow. Wathan owns the trace, DHH challenges added abstractions, and Otwell or Porzio checks framework and component ownership. Use the existing panel, not a separate review round.
+Follow dependencies far enough to establish the contract without turning a branch review into a project-wide redesign. Each traced flow returns either a concrete proposal or a short no-change verdict with the reason. Do not force a finding or pad the final report with no-change verdicts.
 
-```text
-Producer → transformation → stored value → consumer
-```
-
-Read the relevant callers, bindings, tests, and nearby conventions. Follow dependencies far enough to establish the contract without turning a branch review into a project-wide redesign. Compare names with actual behavior, related representations, public visibility, and where repeated rules are derived. Check runtime modes when they change what an operation does.
-
-Each traced flow returns either a concrete proposal or a short no-change verdict with the reason. A proposal must include:
-
-- The current call site or data flow, with file and symbol references.
-- The specific mismatch or repeated decision that makes it hard to predict or change.
-- The smallest useful before/after, including the related names and consumers that must move together.
-- The behavior and contracts that must remain distinct or unchanged.
-
-Do not force a finding. Keep a valid early-exit loop, an established name, or separate raw and personalized outputs when changing them would add ceremony or hide a real distinction. Record no-change verdicts for synthesis, but do not turn them into PR comments or pad the final report with them.
-
-Each subagent returns concrete, file-specific findings — not platitudes. Each finding should name the file/symbol, the problem (what costs clarity or adds cognitive load), and the proposed simplification.
+Each subagent returns concrete, file-specific findings — not platitudes. Each finding should name the file/symbol, the problem (what costs clarity or adds cognitive load), the proposed simplification, affected consumers, and any distinct behavior or external contracts that must stay unchanged.
 
 Synthesize the panel's reviews into a single deduplicated, prioritized list. Lead with the highest-leverage simplifications. Call out anything where the personas disagree and say which way you lean and why.
 

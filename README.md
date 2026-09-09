@@ -2,7 +2,7 @@
 
 A code-review skill for Claude Code that hunts for **simplification**. It analyzes a scope end to end, convenes Taylor Otwell, DHH, and Adam Wathan as parallel reviewer personas (Caleb Porzio joins when frontend files are in scope), and synthesizes their findings into one prioritized list. The bar is semantic clarity: code that stays obvious six months from now and under production pressure.
 
-Everything lives in [SKILL.md](skills/polish/SKILL.md).
+The review workflow lives in [SKILL.md](skills/polish/SKILL.md). It requires the [coding skill](https://github.com/fgilio/coding-skill).
 
 ## Modes
 
@@ -26,6 +26,8 @@ The commands above assume a skills-directory install. Installed as a plugin, ski
 
 ### As a plugin
 
+The manifest declares `coding` as a [plugin dependency](https://code.claude.com/docs/en/plugin-dependencies). Both plugins are available in the `fgilio` marketplace.
+
 Installs through the [fgilio marketplace](https://github.com/fgilio/claude-plugins) and receives updates as the skill evolves:
 
 ```
@@ -34,6 +36,8 @@ Installs through the [fgilio marketplace](https://github.com/fgilio/claude-plugi
 ```
 
 ### Manual clone
+
+Install the [coding skill](https://github.com/fgilio/coding-skill#manual-clone) first. Manual clones do not resolve plugin dependencies. Keep it updated so its Coherent Interfaces section is available.
 
 Clone and symlink into your Claude Code skills directory:
 
