@@ -1,6 +1,7 @@
 {
   "name": "polish",
   "description": "Polish a codebase by reviewing it in search of simplifications, unifications, and reductions in cognitive load.",
+  "dependencies": ["coding"],
   "author": {
     "name": "Franco Gilio"
   },
