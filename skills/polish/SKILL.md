@@ -17,7 +17,7 @@ disable-model-invocation: false
 
 Review code in search of simplification. The bar is **semantic clarity**: the code should be crystal clear six months from now, crystal clear while debugging a production bug under pressure, and conceptually clear enough that adding features is obvious. Favor simplifications, unifications, and anything that decreases cognitive load. Avoid overengineering. Eliminate indirection.
 
-Load the required `coding` skill before reviewing (`coding:coding` in a plugin installation). If it is unavailable, report the missing prerequisite and link to its [installation instructions](https://github.com/fgilio/coding-skill#installation) instead of running an incomplete review.
+Load the `coding` skill before reviewing (`coding:coding` when installed as a plugin). If it is missing, run the review anyway, skip the rules that point at it, and name the gap in the synthesis with a link to its [installation instructions](https://github.com/fgilio/coding-skill#installation).
 
 ## Parsing arguments
 
