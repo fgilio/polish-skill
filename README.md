@@ -6,10 +6,10 @@ The review workflow lives in [SKILL.md](skills/polish/SKILL.md). It requires the
 
 ## Modes
 
-One skill, two modes — selected by argument:
+One skill, two modes, selected by argument:
 
-- **Report mode (default)** — `/polish` analyzes and reports the prioritized findings. Writes no code.
-- **Interactive mode** — `/polish --interactive` walks each finding with you via questions, assembles a plan together, and implements what you confirm.
+- **Report mode (default)**: `/polish` analyzes and reports the prioritized findings. Writes no code.
+- **Interactive mode**: `/polish --interactive` walks each finding with you via questions, assembles a plan together, and implements what you confirm.
 
 Optionally scope the review (without `--scope` the most useful one is inferred: uncommitted changes, else the branch):
 
