@@ -24,7 +24,7 @@ Load the `coding` skill before reviewing (`coding:coding` when installed as a pl
 `$ARGUMENTS` carries the invocation. Resolve two things from it:
 
 1. **Mode.** If it contains `--interactive`, `-i`, or the bare word `interactive`, run in **interactive mode**. Otherwise run in **report mode** (the default).
-2. **Scope.** Use the value of `--scope=…` if present: `changes` (the uncommitted diff), `branch` (the current branch's diff against its base), or `project` (the entire codebase). Accept the spelled-out forms too (`the current changes`, `the current branch`, `the entire project`). Otherwise infer the most useful scope from context: `changes` when the repo has uncommitted work, else `branch`, else ask the user only if genuinely ambiguous.
+2. **Scope.** Use the value of `--scope=…` if present: `changes` (the uncommitted diff), `branch` (the current branch's diff against its base), or `project` (the entire codebase). Accept the spelled-out forms too (`the current changes`, `the current branch`, `the entire project`). Otherwise infer the most useful scope from context: `changes` when the repo has uncommitted work, else `branch` when the current branch has commits its base lacks, else ask the user which scope to review.
 
 State the resolved mode and scope in one line before you begin, so the choice is visible and correctable.
 
