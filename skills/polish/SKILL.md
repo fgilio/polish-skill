@@ -41,7 +41,7 @@ Convene the panel. Spawn **parallel subagents**, one per persona, each reviewing
 
 A persona subagent starts with a fresh context and does not see the `coding` skill loaded above, so tell each one to load it before reviewing.
 
-The panel also flags **comment and prose noise**, not only code: comments that restate a documented convention, narrate what the next line plainly does, recount history (biography), or sit in a header block when they explain one specific line. Apply the `coding` skill's comment rules as part of the review.
+Tell each persona subagent to also flag **comment and prose noise**, not only code: comments that restate a documented convention, narrate what the next line plainly does, recount history (biography), or sit in a header block when they explain one specific line. Apply the `coding` skill's comment rules as part of the review.
 
 The panel also **traces related interfaces** when a change introduces or alters an interface, data representation, or responsibility. Apply the `coding` skill's Coherent Interfaces section to the affected flow. Wathan owns the trace, DHH challenges added abstractions, and Otwell or Porzio checks framework and component ownership. Use the existing panel, not a separate review round.
 
