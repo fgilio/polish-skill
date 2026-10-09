@@ -17,7 +17,7 @@ disable-model-invocation: false
 
 Review code in search of simplification. The bar is **semantic clarity**: the code should be crystal clear six months from now, crystal clear while debugging a production bug under pressure, and conceptually clear enough that adding features is obvious. Favor simplifications, unifications, and anything that decreases cognitive load. Avoid overengineering. Eliminate indirection.
 
-Load the `coding` skill before reviewing (`coding:coding` when installed as a plugin). If it is missing, run the review anyway, skip the rules that point at it, and name the gap in the synthesis with a link to its [installation instructions](https://github.com/fgilio/coding-skill#installation).
+Load the `coding` skill before reviewing, from the same install as this skill: `coding:coding` for a plugin install, or the entry next to this skill's directory for a skills-directory install. A same-named copy under another namespace (such as `anthropic-skills:coding`) can be an older version, so never load it. If it is missing, run the review anyway, skip the rules that point at it, and name the gap in the synthesis with a link to its [installation instructions](https://github.com/fgilio/coding-skill#installation).
 
 ## Parsing arguments
 
