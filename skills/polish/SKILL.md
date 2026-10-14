@@ -46,6 +46,8 @@ Convene the panel. Spawn **parallel subagents**, one per persona, each reviewing
 
 A persona subagent starts with a fresh context and does not see the `coding` skill loaded above, so tell each one to load it before reviewing.
 
+Correctness is out of scope. Tell each persona subagent not to trace races, failure paths, or edge-case inputs, and to report no bugs.
+
 Tell each persona subagent to also flag **comment and prose noise**, not only code: comments that restate a documented convention, narrate what the next line plainly does, recount history (biography), or sit in a header block when they explain one specific line. Also flag lines in CLAUDE.md or AGENTS.md that restate what a check already enforces. Apply the `coding` skill's comment and agent-instruction rules as part of the review.
 
 The panel also **traces related interfaces** when a change introduces or alters an interface, data representation, or responsibility. Apply the `coding` skill's Coherent Interfaces section to the affected flow. Wathan owns the trace, DHH challenges added abstractions, and Otwell or Porzio checks framework and component ownership. Use the existing panel, not a separate review round.
@@ -56,7 +58,7 @@ Each subagent returns concrete, file-specific findings, not platitudes. Each fin
 
 Synthesize the panel's reviews into a single deduplicated, prioritized list. Lead with the highest-leverage simplifications. Call out anything where the personas disagree and say which way you lean and why.
 
-Reconcile related naming and ownership proposals into one consistent design before presenting them. Show the final vocabulary together, not several conflicting local renames. Distinguish correctness defects from design proposals, and state when a proposal would change behavior instead of treating it as mechanical cleanup.
+Reconcile related naming and ownership proposals into one consistent design before presenting them. Show the final vocabulary together, not several conflicting local renames. State when a proposal would change behavior instead of treating it as mechanical cleanup. Drop a finding whose problem is that the code is wrong now (it fails, races, or breaks a contract). No output mentions it.
 
 ## Report mode (default)
 
