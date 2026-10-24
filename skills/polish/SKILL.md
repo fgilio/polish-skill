@@ -40,13 +40,15 @@ Analyze the scope in depth, fully end to end, every file in it. When the scope i
 Convene the panel. Spawn **parallel subagents**, one per persona, each reviewing the same scope through that person's lens. Otwell, DHH, and Wathan always sit on the panel. Porzio joins only when the scope warrants it (see his entry):
 
 - **Taylor Otwell: does it feel Laravel-native?** Hunts for raw PHP doing what the framework already does: hand-rolled loops instead of collections, string fiddling instead of `Str`, manual guards instead of validation rules or policies, queries that belong in scopes, bootstrapping that fights the framework. The bar is code that reads as if it shipped with Laravel itself. In non-Laravel codebases, applies the same lens to that stack's framework idioms.
-- **DHH: is it simple and easy to maintain?** Hunts for needless abstraction and ceremony: layers that exist "just in case", speculative flexibility, patterns imported without earning their keep, three concepts where one would do. Prefers deleting code over organizing it. The bar is code a maintainer can change confidently months from now without archaeology.
+- **DHH: is it simple and easy to maintain?** Hunts for needless abstraction and ceremony: layers that exist "just in case", speculative flexibility, patterns imported without earning their keep, three concepts where one would do. Prefers deleting code over organizing it. A control, mode, limit, or distinct state counts as removable only when the finding names what it exists for and shows that nothing needs it. Otherwise its removal is a product question. The bar is code a maintainer can change confidently months from now without archaeology.
 - **Adam Wathan: does it speak the language of the system?** Hunts for semantic drift: names that don't match the domain vocabulary, one-off solutions where the codebase already has an established pattern, near-duplicates that should collapse into an existing convention. The bar is code that looks like it was written by the same hand as the rest of the system.
 - **Caleb Porzio: is the frontend built the way we build frontend?** Owns everything Livewire, Flux, and Alpine: component boundaries and communication, state living where it belongs (server-side vs Alpine), Flux components over bespoke markup, a sprinkle of Alpine over a heavyweight solution. The bar is a frontend a backend developer can follow. Spawn this persona only when the scope contains relevant files (Livewire components, Blade views, Alpine or other frontend code). Skip it otherwise and note the skip in the synthesis.
 
 A persona subagent starts with a fresh context and does not see the `coding` skill loaded above, so tell each one to load it before reviewing.
 
 Correctness is out of scope. Tell each persona subagent not to trace races, failure paths, or edge-case inputs, and to report no bugs.
+
+Product decisions are out of scope too: where an action lives and which limits and controls exist belong to the product's owner. Tell each persona subagent to raise one as a question, with a recommendation and the trade-off, never as a simplification. Copy a user reads is in scope only where a written rule covers it, such as the `coding` skill's Error Messages section.
 
 Tell each persona subagent to also flag **comment and prose noise**, not only code: comments that restate a documented convention, narrate what the next line plainly does, recount history (biography), or sit in a header block when they explain one specific line. Also flag lines in CLAUDE.md or AGENTS.md that restate what a check already enforces. Apply the `coding` skill's comment and agent-instruction rules as part of the review.
 
@@ -58,7 +60,7 @@ Each subagent returns concrete, file-specific findings, not platitudes. Each fin
 
 Synthesize the panel's reviews into a single deduplicated, prioritized list. Lead with the highest-leverage simplifications. Call out anything where the personas disagree and say which way you lean and why.
 
-Reconcile related naming and ownership proposals into one consistent design before presenting them. Show the final vocabulary together, not several conflicting local renames. State when a proposal would change behavior instead of treating it as mechanical cleanup. Drop a finding whose problem is that the code is wrong now (it fails, races, or breaks a contract). No output mentions it.
+Reconcile related naming and ownership proposals into one consistent design before presenting them. Show the final vocabulary together, not several conflicting local renames. State when a proposal would change behavior, and what a user, an operator, or a caller would see differently, instead of treating it as mechanical cleanup. List the product questions apart from the findings. Drop a finding whose problem is that the code is wrong now (it fails, races, or breaks a contract). No output mentions it.
 
 ## Report mode (default)
 
