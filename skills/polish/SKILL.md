@@ -48,7 +48,7 @@ A persona subagent starts with a fresh context and does not see the `coding` ski
 
 Correctness is out of scope. Tell each persona subagent not to trace races, failure paths, or edge-case inputs, and to report no bugs.
 
-Product decisions are out of scope too: where an action lives and which limits and controls exist belong to the product's owner. Tell each persona subagent to raise one as a question, with a recommendation and the trade-off, never as a simplification. Copy a user reads is in scope only where a written rule covers it, such as the `coding` skill's Error Messages section.
+Product decisions are out of scope too: where the product offers an action and which limits and controls exist belong to the product's owner. Tell each persona subagent to raise one as a question, with a recommendation and the trade-off, never as a simplification. Which class or module owns the code stays in scope. Copy a user reads is in scope only where a written rule covers it, such as the `coding` skill's Error Messages section.
 
 Tell each persona subagent to also flag **comment and prose noise**, not only code: comments that restate a documented convention, narrate what the next line plainly does, recount history (biography), or sit in a header block when they explain one specific line. Also flag lines in CLAUDE.md or AGENTS.md that restate what a check already enforces. Apply the `coding` skill's comment and agent-instruction rules as part of the review.
 
