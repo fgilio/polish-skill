@@ -13,7 +13,7 @@ One skill, two modes, selected by argument:
 
 Optionally scope the review (without `--scope` it is inferred from context: uncommitted changes, the branch, or the whole project when the request covers it or there is no diff):
 
-```
+```text
 /polish --scope=changes
 /polish --scope=branch
 /polish --scope=project
@@ -28,7 +28,7 @@ The commands above assume a skills-directory install. Installed as a plugin, ski
 
 Installs through the [fgilio marketplace](https://github.com/fgilio/claude-plugins) and receives updates as the skill evolves. The manifest declares `coding` as a [plugin dependency](https://code.claude.com/docs/en/plugin-dependencies), so the install pulls it in:
 
-```
+```text
 /plugin marketplace add fgilio/claude-plugins
 /plugin install polish@fgilio
 ```
@@ -45,6 +45,15 @@ ln -s ~/dev/skills/polish-skill/skills/polish ~/.claude/skills/polish
 ```
 
 This path also works with any agent that supports the open [Agent Skills](https://agentskills.io) format. Updates require a manual `git pull`.
+
+## Development
+
+```bash
+bun install
+bun run check
+```
+
+`bun install` installs the pinned tools from `bun.lock` and the pre-commit hook, which formats and lints the staged Markdown, JSON and YAML. `bun run check` runs the format and Markdown gates. CI also runs the prose and plugin checks. [fleet/README.md](https://github.com/fgilio/claude-plugins/blob/main/fleet/README.md) in the marketplace repository describes the standard and the shared workflow that checks it.
 
 ## License
 
