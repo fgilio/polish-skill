@@ -58,7 +58,7 @@ Follow dependencies far enough to establish the contract without turning a branc
 
 Each subagent returns concrete, file-specific findings, not platitudes. Each finding should name the file/symbol, the problem (what costs clarity or adds cognitive load), the proposed simplification, affected consumers, and any distinct behavior or external contracts that must stay unchanged.
 
-Synthesize the panel's reviews into a single deduplicated, prioritized list. Lead with the highest-leverage simplifications. Call out anything where the personas disagree and say which way you lean and why.
+Synthesize the panel's reviews into a single deduplicated, prioritized list. Lead with the simplifications that remove the most cognitive load. Call out anything where the personas disagree and say which way you lean and why.
 
 Reconcile related naming and ownership proposals into one consistent design before presenting them. Show the final vocabulary together, not several conflicting local renames. State when a proposal would change behavior, and what a user, an operator, or a caller would see differently, instead of treating it as mechanical cleanup. List the product questions apart from the findings. Drop a finding whose problem is that the code is wrong now (it fails, races, or breaks a contract). No output mentions it.
 
